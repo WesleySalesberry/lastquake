@@ -1,10 +1,10 @@
 # LastQuake
 
 <!--- These are examples. See https://shields.io for others or to customize this set of shields. You might want to include dependencies, project status and licence info here --->
-![GitHub repo size](https://img.shields.io/github/repo-size/:wesleySalesberry/README-template.md)
-![GitHub contributors](https://img.shields.io/github/contributors/:wesleySalesberry/README-template.md)
-![GitHub stars](https://img.shields.io/github/stars/:wesleySalesberry/README-template.md?style=social)
-![GitHub forks](https://img.shields.io/github/forks/:wesleySalesberry/README-template.md?style=social)
+![GitHub repo size](https://img.shields.io/github/repo-size/:wesleySalesberry/lastquake)
+![GitHub contributors](https://img.shields.io/github/contributors/:wesleySalesberry/lastquake)
+![GitHub stars](https://img.shields.io/github/stars/:wesleySalesberry/lastquake?style=social)
+![GitHub forks](https://img.shields.io/github/forks/:wesleySalesberry/lastquake?style=social)
 [![Linkedin: wesleySalesberry](https://img.shields.io/badge/-wesleySalesberry-black?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/wessalesberry/)](https://www.linkedin.com/in/wessalesberry/)
 
 LastQuake allows a user to sign up and save different earthquake data that interest them. It also allows the user to look up the area to see if an earthquake has happened. It displays the magnitude, location, how many have felt it and if it was an earthquake or another type of seismic activity.
