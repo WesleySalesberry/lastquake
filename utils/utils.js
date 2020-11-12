@@ -1,17 +1,5 @@
 const axios = require("axios");
 
-/*
-TODO: when done building change to MongoDB
-NEDB used for testing
-*/
-const Datastore = require('nedb');
-
-const database = new Datastore('test.db');
-
-database.loadDatabase();
-
-module.exports = Datastore
-
 
 
 module.exports = {
@@ -24,8 +12,5 @@ module.exports = {
             console.log(`${err}`)
         }
     },
-        addData(item){
-            database.insert(item)
-    }
 }
 
