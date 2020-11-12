@@ -8,7 +8,7 @@ router.get('/api/:name', async (req, res) => {
     const data = await myData(name)
     console.log(`${name}: ${data.length}`)
 
-    if(data === 0){
+    if(data.length === 0){
         res.send("No Data is Currently Available")
     }
     res.send(data)
