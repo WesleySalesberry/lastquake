@@ -28,6 +28,20 @@ module.exports = {
                 throw new Error('Passwords do not match password')
             }
             return true
-        })
+        }),
+
+    checkEmail: check('email')
+        .trim()
+        .isEmail()
+        .normalizeEmail()
+        .withMessage('Invalid Credentials'),
+
+    checkPassword: check('password')
+        .trim()
+        .exists()
+        .withMessage('Invalid Credentials'),
+
+    
+    
     
 }
