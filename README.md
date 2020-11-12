@@ -16,24 +16,6 @@ Before you begin, ensure you have met the following requirements:
 <!--- These are just example requirements. Add, duplicate or remove as required --->
 * You have installed the latest version of Node and React
 
-
-## Installing <project_name>
-
-To install LastQuake, follow these steps:
-
-Linux and macOS:
-```
-npm install
-```
-
-## Using <project_name>
-
-To use LastQuake, follow these steps:
-
-```
-npm run dev
-```
-
 ## Contributing to LastQuake
 <!--- If your README is long or you have some specific process or steps you want contributors to follow, consider creating a separate CONTRIBUTING.md file--->
 To contribute to LastQuake, follow these steps:
@@ -45,6 +27,23 @@ To contribute to LastQuake, follow these steps:
 5. Create the pull request.
 
 Alternatively see the GitHub documentation on [creating a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
+
+## Installing LastQuake
+
+To install LastQuake, follow these steps:
+
+Linux and macOS:
+```
+npm install
+```
+
+## Using LastQuake
+
+To use LastQuake, follow these steps:
+
+```
+npm run dev
+```
 
 ## Contributors
 
