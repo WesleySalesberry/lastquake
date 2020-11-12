@@ -26,11 +26,13 @@ NEDB used for testing
 const geoLocation = require('./routes/geolocation');
 const currentDay = require('./routes/history')
 const register = require('./routes/auth/register')
+const login = require('./routes/auth/signin')
 app.get('/', (req, res) => res.send('API Running'));
 
 
 app.use(geoLocation);
 app.use(currentDay)
 app.use(register)
+app.use(login)
 
 app.listen(PORT, () => console.log(`> Server Started On: http://localhost:${PORT}`));
