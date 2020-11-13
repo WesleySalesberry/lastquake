@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{Fragment} from 'react'
 
 import { Navbar } from './component/Navbar/Navbar';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
@@ -6,7 +6,9 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 
 import { CardDisplay } from './component/Display/CardDisplay';
-import { Card } from './component/Card/Card';
+import { Landing } from './pages/Landing';
+
+
 
 function App() {
 
@@ -14,9 +16,10 @@ function App() {
   return (
     
     <BrowserRouter>
-      <Navbar/>
-      <CardDisplay name={"hour"} />
-     
+      <Fragment>
+        <Navbar />
+        <Route exact path="/" component={Landing} />
+      </Fragment>
     </BrowserRouter>
   );
 }
