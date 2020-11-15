@@ -23,15 +23,20 @@ NEDB used for testing
 // database.loadDatabase();
 
 
-const geoLocation = require('./routes/geolocation');
+
 const currentDay = require('./routes/history')
+const search = require('./routes/search')
 const register = require('./routes/auth/register')
 const login = require('./routes/auth/signin')
+
 app.get('/', (req, res) => res.send('API Running'));
 
 
-app.use(geoLocation);
+
 app.use(currentDay)
+app.use(search)
+
+//login and register
 app.use(register)
 app.use(login)
 
