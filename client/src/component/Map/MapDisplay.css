@@ -1,0 +1,24 @@
+.leaflet-container{
+    width: 100%;
+    height: 100vh;
+}
+
+.small{
+	background: green;
+	color: #000
+}
+
+.medium{
+	background: yellow;
+	color: #000
+}
+
+.large{
+	background: orange;
+	color: #000
+}
+
+.huge{
+	background: red;
+	color: #000
+}
