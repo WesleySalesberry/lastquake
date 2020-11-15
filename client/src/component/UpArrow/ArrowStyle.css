@@ -1,0 +1,17 @@
+.scrollTop {
+	position: fixed;
+	width: 30%;
+	bottom: 10px;
+	align-items: right;
+	/* height: 5px; */
+	justify-content: right;
+	z-index: 1000;
+	cursor: pointer;
+	animation: fadeIn 0.3s;
+	transition: opacity 0.4s;
+	opacity: 0.5;
+}
+
+.scrollTop:hover {
+	opacity: 1;
+}
