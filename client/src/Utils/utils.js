@@ -14,3 +14,20 @@ export function timeConverter(time){
 	return startDate;
 
 }
+
+export const changeColor = (mag) => {
+
+       if(mag <= 4.90){
+
+           return "small";
+
+       }else if(mag <= 5.90){
+
+           return "medium";
+
+       }else if(mag <= 6.90){
+           return "large"
+       }else{
+           return "huge"
+       }
+    }
