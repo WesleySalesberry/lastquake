@@ -1,7 +1,10 @@
 import React, {Fragment} from 'react'
-import { CardDisplay } from '../component/Display/CardDisplay'
-import {Link} from 'react-router-dom'
+
+
+
 import './Landing.css'
+import { ScrollTopArrow } from '../component/UpArrow/Arrow'
+import { MapDisplay } from '../component/Map/MapDisplay'
 
 export const Landing = () => {
     return (
@@ -18,8 +21,8 @@ export const Landing = () => {
                     </p>
                 </div>
             </section>
-
-            <CardDisplay name={"month"}/>
+            <MapDisplay/>
+            <ScrollTopArrow />
         </main>
     )
 }
