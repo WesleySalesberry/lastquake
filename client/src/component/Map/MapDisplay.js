@@ -53,7 +53,7 @@ export const MapDisplay = () => {
     return isLoading ? 
     (
         <Fragment>
-            <h1>Loading</h1>
+            <Loader />
         </Fragment>
     ):
     (
