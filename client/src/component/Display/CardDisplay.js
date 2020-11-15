@@ -17,8 +17,6 @@ export const CardDisplay = ({name}) => {
   
     useEffect(() => {
         async function fetchData(name){
-            // const myData = await getData(name)
-            // setData(myData.data)
             getData(name)
         }
         fetchData(name)
@@ -33,17 +31,17 @@ export const CardDisplay = ({name}) => {
 
         const postData = slice.map(item => (
             <Card
-                            key={item.id}
-                            map={item.id}
-                            title={item.properties.place}
-                            starttime={item.properties.time}
-                            updatedtime={item.properties.updated} 
-                            mag={item.properties.mag} 
-                            felt={item.properties.felt}
-                            tyevent={item.properties.type} 
-                        />
+                 key={item.id}
+                 map={item.id}
+                LatLong={[item.geometry.coordinates[1], item.geometry.coordinates[0]]}
+                 title={item.properties.place}
+                 starttime={item.properties.time}
+                 updatedtime={item.properties.updated} 
+                 mag={item.properties.mag} 
+                 felt={item.properties.felt}
+                 tyevent={item.properties.type} 
+            />
         ))
-
         setData(postData)
         setPageCount(Math.ceil(data.length / perPage))
 
@@ -56,26 +54,12 @@ export const CardDisplay = ({name}) => {
     setOffset(selectedPage + 1)
 };
 
-    // const getData = async (name) =>{
-    //   try{
-    //     const res = await api.get(`/${name}`)
-    //     return res
-    //   }catch(err){
-    //     console.log(`${err}`)
-    //   }
-    // }
-
-
-    console.log(data)
-
     return (
         <div className="container-fluid">
             <div>
                 <h1>Quakes over the past {name}</h1>
             </div>
-
             <div className="row">
-
                 {data}
                 <ReactPaginate
                     previousLabel={"prev"}
@@ -89,22 +73,6 @@ export const CardDisplay = ({name}) => {
                     containerClassName={"pagination"}
                     subContainerClassName={"pages pagination"}
                     activeClassName={"active"}/>
-
-                {/* {
-                    data && data.map(item => (
-                        
-                        <Card
-                            key={item.id}
-                            map={item.id}
-                            title={item.properties.place}
-                            starttime={item.properties.time}
-                            updatedtime={item.properties.updated} 
-                            mag={item.properties.mag} 
-                            felt={item.properties.felt}
-                            tyevent={item.properties.type} 
-                        />
-                    ))
-                } */}
             </div>
       </div>
     )
