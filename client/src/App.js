@@ -1,11 +1,8 @@
 import React,{Fragment} from 'react'
 
 import { Navbar } from './component/Navbar/Navbar';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
-
-
-import { CardDisplay } from './component/Display/CardDisplay';
 import { Landing } from './pages/Landing';
 
 
