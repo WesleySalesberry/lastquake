@@ -2,8 +2,9 @@ import React,{Fragment} from 'react'
 
 import { Navbar } from './component/Navbar/Navbar';
 import { BrowserRouter, Route } from 'react-router-dom';
+import { Landing } from './pages/LandingPage/Landing';
 
-import { Landing } from './pages/Landing';
+
 
 
 
