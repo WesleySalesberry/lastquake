@@ -14,3 +14,15 @@ export const currentData = async (name) => {
 		
 	}
 }
+
+export const citySearch = async (city) => {
+	try {
+		const cityData = await api.get(`/search/${city}`)
+		return cityData
+		
+	} catch (error) {
+
+		console.log(`> Error from city search: ${error}`)
+		
+	}
+}
