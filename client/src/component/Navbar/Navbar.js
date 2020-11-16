@@ -58,7 +58,7 @@ export const Navbar = () => {
                                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                                     {
                                         options.map(link => (
-                                            <div>
+                                            <div key={link.id}>
                                             <Link key={link.id} className={link.className} to={link.to}>{link.name}</Link>
                                             <div className="dropdown-divider"></div>
                                             </div>
