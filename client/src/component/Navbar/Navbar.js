@@ -1,6 +1,11 @@
 import React, { Fragment } from 'react'
 import {Link} from 'react-router-dom'
 
+
+
+// import DropdownButton from 'react-bootstrap/DropdownButton';
+// import Dropdown from 'react-bootstrap/Dropdown'
+
 export const Navbar = () => {
 
     const options = [
@@ -8,30 +13,31 @@ export const Navbar = () => {
             id: 1,
             className: "dropdown-item", 
             to: '#',
-            name: 'Past Hour'
+            name: 'hour'
         },
         { 
             id: 2,
             className: "dropdown-item", 
             to: '#',
-            name: 'Past Day'
+            name: 'day'
         },
         { 
             id: 3,
             className: "dropdown-item", 
             to: '#',
-            name: 'Past Week'
+            name: 'week'
         },
         { 
             id: 4,
             className: "dropdown-item", 
             to: '#',
-            name: 'Past Month'
+            name: 'month'
         }
     ]
 
     return (
-        <Fragment>
+
+         <Fragment>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container">
                     <div className="d-flex flex-grow-1">
@@ -71,6 +77,10 @@ export const Navbar = () => {
                 </div>
             </nav>
         </Fragment>
+        
+       
     )
 }
+
+
 
