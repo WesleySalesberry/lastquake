@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const {hourlyData, geocode, searchFunction, isEmpty}= require('../utils/utils')
+const { geocode, searchFunction, isEmpty } = require('../utils/utils')
 
 
 //@route  GET api/search item
