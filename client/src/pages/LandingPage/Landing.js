@@ -2,13 +2,14 @@ import React, {Fragment, useState } from 'react'
 
 import { MapDisplay } from '../../component/Map/MapDisplay'
 
-import { options } from './Opitions'
+import { option_2 } from './Opitions'
 
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown'
 
+import { currentData } from '../../Utils/api'
+
 import './Landing.css'
-import { Search } from '../../component/Search/Search';
 
 
 export const Landing = () => {
@@ -38,25 +39,24 @@ export const Landing = () => {
                 </section>
                 <div className="container">
                     <DropdownButton
-                        alignEnd
-                        title="Citys"
+                        title="Time Frame"
                         id="dropdown-menu-align-end"
                         onSelect={handleSelect}
                      >
                             {
-                                options.map(item => (
-                                    <div>
-                                        <Dropdown.Item eventKey={item.name}>{item.name}</Dropdown.Item>
+                                option_2.map(item => (
+                                    <div key={item.id}>
+                                        <Dropdown.Item eventKey={item.value}>{item.name}</Dropdown.Item>
                                         <Dropdown.Divider />
                                      </div>
                                 ))
                             }
                 
-                    </DropdownButton>
-                </div>
+                    </DropdownButton> 
+                        </div>
             </main>
             {
-                city === "" ? <h1>Select a City</h1> : <MapDisplay city={city}/>
+                city === "" ? <h1>Select a Time Frame</h1> : <MapDisplay zoom={4} option={city} func={currentData}/>
             }
              
         </Fragment>
