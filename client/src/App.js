@@ -1,25 +1,22 @@
-import React,{Fragment} from 'react'
+import React,{Fragment, useEffect, } from 'react'
 
 import { Navbar } from './component/Navbar/Navbar';
-import { BrowserRouter, Route } from 'react-router-dom';
-import { Landing } from './pages/LandingPage/Landing';
+import { Route } from 'react-router-dom';
+
+import { DisplayForms } from './Pages/Auth/DisplayForms';
+import { Landing } from './Pages/LandingPage/Landing';
 
 
-
-
-
-function App() {
-
-
+export const App = () => {
+ 
+ 
   return (
-    
-    <BrowserRouter>
       <Fragment>
-        <Navbar />
+       <Navbar />
+        <Route exact path="/forms" component={DisplayForms}/>
         <Route exact path="/" component={Landing} />
       </Fragment>
-    </BrowserRouter>
   );
 }
 
-export default App;
+
