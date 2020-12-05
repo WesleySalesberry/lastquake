@@ -23,11 +23,11 @@ export const changeColor = (mag) => {
 
        }else if(mag <= 5.90){
 
-           return "medium";
+           return "fas fa-map-pin medium";
 
        }else if(mag <= 6.90){
-           return "large"
+           return "fas fa-map-pin large"
        }else{
-           return "huge"
+           return "fas fa-map-pin huge"
        }
     }
