@@ -1,5 +1,6 @@
 const axios = require("axios");
 const { response } = require("express");
+const moment = require('moment')
 
 
 module.exports = {
@@ -12,8 +13,12 @@ module.exports = {
             console.log(`${err}`)
         }
     },
+
     async searchFunction(latitude, longitude){
-        const URL = `https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=${latitude}&longitude=${longitude}&maxradiuskm=50`
+        const currentMonth = moment().format('YYYY-MM-DD')
+        const lastMonth = moment(currentMonth).subtract(180, 'days').format('YYYY-MM-DD')
+
+        const URL = `https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=${latitude}&longitude=${longitude}&maxradiuskm=100`
         try {
             let results = await axios.get(URL)
             return results.data.features
