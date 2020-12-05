@@ -3,6 +3,10 @@
 	height: 100vh;
 	border: 2px solid #000;
 	border-radius: 10px;
+	margin-top: 25px;
+}
+.popup{
+	border-color: red;
 }
 
 .leaflet-div-icon .small{
