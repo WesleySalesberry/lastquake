@@ -1,7 +1,6 @@
-.main_text_color{
-    color:#26324a
-}
-
 .bg-color{
-    color:#26324a
+    background-color: #2e3233 !important;
+}
+.text-color{
+    color: #a4a29e;
 }

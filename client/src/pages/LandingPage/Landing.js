@@ -1,43 +1,26 @@
-import React, {Fragment, useState } from 'react'
-
+import React, {useState } from 'react'
 import { MapDisplay } from '../../component/Map/MapDisplay'
-
 import { option_2 } from './Opitions'
-
-import DropdownButton from 'react-bootstrap/DropdownButton';
-import Dropdown from 'react-bootstrap/Dropdown'
-
+import {Container, Row, Jumbotron, DropdownButton, Dropdown} from 'react-bootstrap'
 import { currentData } from '../../Utils/api'
-
 import './Landing.css'
 
-
 export const Landing = () => {
-    const [ city, setCity ] = useState('')
-
-    console.log(city)
-
+    const [ time, setTime ] = useState('')
     const handleSelect = (evt) =>{
         console.log(evt)
-        setCity(evt)
+        setTime(evt)
     }
 
     return (
-        <Fragment>
-            <main role="main">
-                <section className="jumbotron text-center bg-color">
-                    <div className="container">
-                        <h1>Last<span className="main_text_color">Quake</span></h1>
-                        <p className="lead text-muted">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam, odio? Quasi, in voluptas! Ad laboriosam tempora quaerat aperiam eligendi, unde minus esse dignissimos, nemo vero cumque autem qui quos perferendis nihil maxime maiores inventore odit?
-                        </p>
-                        <p>
-                            <a className="btn btn-secondary my2">Sign Up</a>
-                            <a className="btn btn-secondary my2">Register</a>
-                        </p>
-                    </div>
-                </section>
-                <div className="container">
+        <Container>
+                <Container className="p-3">
+                    <Jumbotron className="bg-color text-color">
+                        <h1 className="header text-center">Welcome To LastQuake</h1>
+                        <p className="lead text-center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo, optio? </p>
+                    </Jumbotron>
+                </Container>
+                <Row className="justify-content-md-center">
                     <DropdownButton
                         title="Time Frame"
                         id="dropdown-menu-align-end"
@@ -53,22 +36,12 @@ export const Landing = () => {
                             }
                 
                     </DropdownButton> 
-                        </div>
-            </main>
+                </Row>
             {
-                city === "" ? <h1>Select a Time Frame</h1> : <MapDisplay zoom={4} option={city} func={currentData}/>
+                time === "" ? <Row className="justify-content-md-center text-color"><h1>Select a Time Frame</h1></Row> : <MapDisplay zoom={4} option={time} func={currentData}/>
             }
-             
-        </Fragment>
+        </Container>
         
     )
 }
 
-/*
-    alpide
-    los angeles
-    oakland
-    ring of fire
-    san andreas fault
-    Cape Mendicino
- */
