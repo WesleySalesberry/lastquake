@@ -2,7 +2,7 @@ import React,{Fragment} from 'react'
 import { renderToStaticMarkup } from 'react-dom/server';
 import { MapContainer, Marker, TileLayer, Popup, Icon } from 'react-leaflet'
 import {divIcon} from 'leaflet';
-
+import {Container} from 'react-bootstrap'
 import {changeColor} from '../../Utils/utils'
 
 
@@ -16,7 +16,7 @@ export const Map = ({ data, position, zoom }) => {
     })
     
     return (
-        <Fragment>
+        <Container>
             <MapContainer center={position} zoom={zoom} scrollWheelZoom={false}>
                 <TileLayer
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -30,7 +30,9 @@ export const Map = ({ data, position, zoom }) => {
                             icon={markerIcon}
                             className={changeColor(item.properties.mag)}
                         >
-                            <Popup >
+                            <Popup 
+                                className="popup"
+                            >
                                 <div>
                                     <p>Location: {item.properties.place}</p>
                                     <p>Magnitude: {item.properties.mag.toFixed(2)}</p>
@@ -42,6 +44,6 @@ export const Map = ({ data, position, zoom }) => {
                     ))
                 }
             </MapContainer>
-        </Fragment>
+        </Container>
     )
 }
