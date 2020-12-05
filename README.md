@@ -40,7 +40,12 @@ npm install
 ## Using LastQuake
 
 To use LastQuake, follow these steps:
+To run just node server:
+```
+npm run server
+```
 
+To run both node and react:
 ```
 npm run dev
 ```
