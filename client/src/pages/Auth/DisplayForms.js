@@ -1,67 +1,68 @@
 import React, {useState} from 'react'
 import './Styles.css'
-import { useSpring, animated } from "react-spring";
-import { LoginForm } from '../../Auth/LoginForm'
-import { Register } from '../../Auth/RegisterForm'
-import { Container } from 'react-bootstrap';
+import { animated } from "react-spring";
+import { Register } from '../../component/Auth/RegisterForm';
+import { LoginForm } from '../../component/Auth/LoginForm';
+
 
 export const DisplayForms = () => {
-    const [registrationFormStatus, setRegistartionFormStatus] = useState(false);
-    const loginProps = useSpring({ 
-            left: registrationFormStatus ? -500 : 0,
-        });
-    const registerProps = useSpring({
-            left: registrationFormStatus ? 0 : 500, 
-        });
+  const [status, setStatus] = useState()
 
-    const loginBtnProps = useSpring({
-            borderBottom: registrationFormStatus 
-            ? "solid 0px transparent"
-            : "solid 2px #1059FF",  
-        });
-    const registerBtnProps = useSpring({
-            borderBottom: registrationFormStatus
-            ? "solid 2px #1059FF"
-            : "solid 0px transparent", 
-        });
-
-    function registerClicked() {
-            setRegistartionFormStatus(true);
-        }
-    function loginClicked() {
-            setRegistartionFormStatus(false);
-        }
-    return (
-      <Container>
-        <div className="wrapper">
-          <div className="button">
-            <animated.button
-              onClick={loginClicked}
-              id="loginBtn"
-              style={loginBtnProps}
-            >
-              Login
-            </animated.button>
-            <animated.button
-              onClick={registerClicked}
-              id="registerBtn"
-              style={registerBtnProps}
-            >
-              Register
-            </animated.button>
-          </div>
-          <div className="form-group">
-            <animated.form action="" id="loginform" style={loginProps}>
-            <LoginForm />
-            </animated.form>
-            <animated.form action="" id="registerform" style={registerProps}>
-              <Register />
-            </animated.form>
-          </div>
-          <animated.div className="forgot-panel" style={loginProps}>
-            <a herf="#">Forgot your password</a>
-          </animated.div>
+  return (
+      <div className="container">
+        <div className="BTN-nav">
+          <animated.button 
+            className="login"
+            onClick={() => setStatus(!status)}
+          >{status ? "Register" : "Login" }</animated.button>
+          { 
+            !status ? 
+              <Register status={!status} />
+            :
+              <LoginForm status={status} />
+          }
         </div>
-    </Container>
-  );
+      </div>
+  )
 }
+
+  // <div className="BTN-nav">
+  //         <animated.button 
+  //           className="login"
+  //           style={loginBTN}
+  //           onClick={handleLoginClick}
+  //         >
+  //           Login
+  //         </animated.button>
+  //         <animated.button 
+  //           className="register"
+  //           style={registerBTN}
+  //           onClick={handleRegisterClick}
+  //         >
+  //          Register
+  //         </animated.button>
+  //       </div>
+
+
+
+
+
+  // {
+  //           status ? 
+  //             transitions.map(({item, props, key}) => {
+  //               return  <animated.form><Register
+  //                        key={key}
+  //                        style={props}
+  //                      />
+  //                       </animated.form>
+  //             })
+  //           :
+  //              transitions.map(({item, props, key}) => {
+  //               return  <animated.form><LoginForm
+  //                        key={key}
+  //                        style={props}
+  //                      />
+  //                       </animated.form>
+  //             })
+
+  //         }
