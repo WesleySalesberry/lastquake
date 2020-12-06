@@ -1,96 +1,28 @@
 .container{
-    width: 100%;
-    padding-top: 60px;
-    padding-bottom: 100px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px;
+  width: 100%;
+  height: 90vh;
 }
 
-.wrapper{
-    height:560;
-    width: 520px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 2em;
-    border-radius: 5px;
-    box-shadow: 0 2px 7px rgba(0,0,0, 0.2);
-    overflow: hidden;
-    color: #fff;
-    background: linear-gradient(180deg, rgba(16,3,40,1) 0%, rgba(41,1,28,1) 52%, rgba(255,255,255,0) 81%);
+button{
+  
+  outline: none;
+  border: none;
+}
+.login{
+  margin:10px;
+}
+.login:active, .login:focus{
+
+  outline: none;
+}
+.register:active, .register:focus{
+
+  outline: none;
 }
 
-  /* Nav buttons */
-  .nav-buttons {
-    width: 100%;
-    height: 120px;
-    padding-top: 40px;
-    opacity: 1;
-    margin-bottom: 3em;
-  }
 
-  button {
-      font-size: 1.5em;
-      margin: 2em;
-      border: 0px;
-      cursor: pointer;
-   
-  }
 
-button:focus {
-    outline: none;
-  }
-
-button.active {
-    padding-bottom: 10px;
-    border-bottom: solid 2px #1059FF;
-  }
-
-.form-group input {
-    width: 100%;
-    height: 35px;
-    padding-left: 15px;
-    border: none;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    background: rgba(255,255,255,.5);
-    }
-    .form-group label {
-      text-transform: uppercase;
-    }
-    input.submit {
-        font-weight: 700;
-        text-transform: uppercase;
-        font-size: 1em;
-        text-align: center;
-        color: rgba(255,255,255, 1);
-        padding: 8px 0px;
-        width: 100%;
-        height: 35px;
-        border: none;
-        border-radius: 20px;
-        margin-top: 23px;
-        background-color: rgba(16,89,255, 1);
-    
-    }
-
-    /*Form positioning and animation */
-
-    form#registerform {
-        left:500px;
-        top:-230px;
-        position:relative;
-    }
-
-    .forgot-panel {
-        margin-top:-300px;
-        color:gray;
-    }
-
-    form, .forgot-panel { 
-        position: relative;
-        transition: all .5s ease;
-    }
-    
-    #loginBtn, #registerBtn {
-
-        transition: all .5s ease;
-
-    }
