@@ -6,7 +6,6 @@ import {
 	LOGIN_FAIL,
 	LOGIN_SUCCESS,
 	LOGOUT,
-	ACCOUNT_DELETED
 } from '../types';
 
 const INITAL_STATE = {
