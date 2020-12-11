@@ -17,12 +17,12 @@ const Register = ({status, setAlert, register, isAuthenticated}) => {
 
 
     const [formData, setFormData] = useState({
-        name: '',
+        username: '',
         email: '',
         password: '',
         passwordConfirmation: '',
     })
-    const { name, email, password, passwordConfirmation } = formData
+    const { username, email, password, passwordConfirmation } = formData
 
     const checkPassword = (pass1, pass2) => {
        return pass1 === pass2 ? false : true
@@ -37,7 +37,10 @@ const Register = ({status, setAlert, register, isAuthenticated}) => {
 
     const handleSubmit = evt => {
         evt.preventDefault();
-        register({name, email, password, passwordConfirmation})
+        if(password !== passwordConfirmation){
+            setAlert('Passwords do not match', 'danger')
+        }
+        register({username, email, password, passwordConfirmation})
         }
    
     return (
@@ -49,8 +52,8 @@ const Register = ({status, setAlert, register, isAuthenticated}) => {
                         size="sm" 
                         autoComplete="on"
                         type="text"
-                        name="name"
-                        value={name}
+                        name="username"
+                        value={username}
                         onChange={evt => handleChange(evt) }
                     ></Form.Control>
                </Form.Group>

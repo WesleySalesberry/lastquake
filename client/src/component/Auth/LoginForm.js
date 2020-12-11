@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Button, InputGroup, Container, Form, Alert } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import {useSpring, animated} from 'react-spring'
 
 import { connect } from 'react-redux'
@@ -24,14 +24,14 @@ const LoginForm = ({status, login, isAuthenticated }) => {
 
     const handleSubmit = (evt) => {
         evt.preventDefault()
-        login({ email, password })
+        login(email, password)
     }
 
     return (
         <animated.form style={statusProps}>
              <Form> 
                 <Form.Group>
-                   <Form.Label className="text-color">UserName</Form.Label>
+                   <Form.Label className="text-color">Email</Form.Label>
                    <Form.Control 
                         size="sm" 
                         type="email"
