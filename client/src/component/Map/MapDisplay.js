@@ -23,13 +23,14 @@ export const MapDisplay = ({ zoom, option, func}) => {
         
     }, [option])
 
+
     const getData = async (option) => {
         try {
             
              //const myData = await citySearch(city)
              const myData = await func(option)
              setData(myData.data)
-             console.log(myData.data[0].properties)
+             console.log(myData.data.properties)
 
             setCoords({
                 lat: myData.data[0].geometry.coordinates[1].toFixed(3), 
