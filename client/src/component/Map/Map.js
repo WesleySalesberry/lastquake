@@ -3,7 +3,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { MapContainer, Marker, TileLayer, Popup, Icon } from 'react-leaflet'
 import {divIcon} from 'leaflet';
 import {Container} from 'react-bootstrap'
-import {changeColor} from '../../Utils/utils'
+import {changeColor, timeConverter} from '../../Utils/utils'
 
 
 
@@ -35,7 +35,10 @@ export const Map = ({ data, position, zoom }) => {
                             >
                                 <div>
                                     <p>Location: {item.properties.place}</p>
+                                    <p>Time Occured: {timeConverter(item.properties.time)}</p>
                                     <p>Magnitude: {item.properties.mag.toFixed(2)}</p>
+
+
                                 </div>
                             </Popup>
                         </Marker>
