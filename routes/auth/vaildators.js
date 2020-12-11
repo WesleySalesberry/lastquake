@@ -1,11 +1,6 @@
 const { check, body } = require('express-validator')
 
 module.exports = {
-    requireUserName: check('username')
-        .isEmpty()
-        .trim()
-        .withMessage('Name is required'),
-
     requireEmail: check('email')
         .trim()
         .isEmail()
