@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import './Styles.css'
 import { animated } from "react-spring";
-import { Register } from '../../component/Auth/RegisterForm';
-import { LoginForm } from '../../component/Auth/LoginForm';
+import Register  from '../../component/Auth/RegisterForm';
+import LoginForm from '../../component/Auth/LoginForm';
 
 
 export const DisplayForms = () => {
@@ -14,7 +14,7 @@ export const DisplayForms = () => {
           <animated.button 
             className="login"
             onClick={() => setStatus(!status)}
-          >{status ? "Register" : "Login" }</animated.button>
+          >Go to {status ? "Register" : "Login" }</animated.button>
           { 
             !status ? 
               <Register status={!status} />
