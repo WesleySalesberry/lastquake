@@ -17,13 +17,14 @@ const search = require('./routes/search')
 const register = require('./routes/auth/register')
 const login = require('./routes/auth/signin')
 
-app.get('/', (req, res) => res.send('API Running'));
+// app.get('/', (req, res) => res.send('API Running'));
+
+//login and register
+app.use('/api/login', login)
+app.use('/api/register', register)
+
 
 app.use(currentDay)
 app.use(search)
-
-//login and register
-app.use(register)
-app.use(login)
 
 app.listen(PORT, () => console.log(`> Server Started On: http://localhost:${PORT}`));
