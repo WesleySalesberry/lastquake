@@ -2,14 +2,18 @@ import React, {useState} from 'react'
 import { Button, InputGroup, Container, Form, Alert } from 'react-bootstrap';
 import {useSpring, animated} from 'react-spring'
 
-export const LoginForm = ({status}) => {
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import { login } from '../../Redux/user/user.actions'
+
+const LoginForm = ({status, login, isAuthenticated }) => {
     const statusProps = useSpring({ opacity: status ? 1 : 0, from: { opacity: 0 } });
     const [formData, setFormData] = useState({
-        username: '',
+        email: '',
         password: ''
     })
 
-    const { username, password, } = formData
+    const { email, password, } = formData
 
     const handleChange = (evt) => {
         setFormData({
@@ -20,7 +24,7 @@ export const LoginForm = ({status}) => {
 
     const handleSubmit = (evt) => {
         evt.preventDefault()
-        console.log(formData)
+        login({ email, password })
     }
 
     return (
@@ -30,9 +34,9 @@ export const LoginForm = ({status}) => {
                    <Form.Label className="text-color">UserName</Form.Label>
                    <Form.Control 
                         size="sm" 
-                        type="text"
-                        name="username"
-                        value={username}
+                        type="email"
+                        name="email"
+                        value={email}
                         onChange={evt => handleChange(evt) }
                     ></Form.Control>
                </Form.Group>
@@ -51,3 +55,14 @@ export const LoginForm = ({status}) => {
         </animated.form >
   );
 }
+
+LoginForm.propTypes = {
+    login: PropTypes.func.isRequired,
+    isAuthenticated: PropTypes.bool,
+}
+
+const mapStateToProps = state => ({
+    isAuthenticated: state.isAuthenticated
+})
+
+export default connect(mapStateToProps, {login})(LoginForm)
