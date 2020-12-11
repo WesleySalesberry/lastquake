@@ -6,13 +6,30 @@ const bcrypt = require('bcryptjs')
 
 const { validationResult } = require('express-validator')
 const{ checkEmail, checkPassword } = require('./vaildators')
+const auth = require('../../middlewares/auth')
 
 const User = require('../../models/User')
+
+// @route    GET api/login
+// @desc     Get user by token
+// @access   Private
+router.get('/', auth, async (req, res) => {
+    try {
+        const user = await User.findById(req.user.id).select('-password')
+        console.log(user)
+        res.send(user)
+    } catch (error) {
+        console.error(`GET: ${error.message}`);
+        res.status(500).send('Server Error');
+    }
+
+})
+
 
 //@route POST api/login
 //@desc  Authenticate User & get token
 //@access PUBLIC
-router.post('/api/login', 
+router.post('/', 
 [
     checkEmail,
     checkPassword
@@ -48,13 +65,13 @@ router.post('/api/login',
         }
 
         jwt.sign(payload, process.env.JWT_TOKEN, { expiresIn: 30000 }, (error, token) => {
-            if(error){
-                res.json({ token })
-            }
+            if(error) throw err
+            res.json({ token })
+            
         })
 
     } catch (error) {
-        console.log(error.message)
+        console.error(`POST: ${error.message}`);
         res.status(500).send(`Server Error > ${error}`)
     }
 
