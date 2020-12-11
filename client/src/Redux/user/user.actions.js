@@ -1,12 +1,16 @@
-import api from '../../Utils/api'
+import { api, setAuthToken } from '../../Utils/api'
 
 import { REGISTER_FAIL, REGISTER_SUCCESS, LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT, USER_LOADED, AUTH_ERROR } from '../types'
 import { setAlert } from '../alert/alert.action'
 
+
 export const loaduser = () => async dispatch =>{
+    if(localStorage.token){
+        setAuthToken(localStorage.token)
+    }
     try {
-        const response = await api.get('user')
-        console.log(response.data)
+        const response = await api.get('login')
+        console.log(response)
         dispatch({
             type: USER_LOADED,
             payload: response.data
@@ -19,11 +23,10 @@ export const loaduser = () => async dispatch =>{
     }
 }
 
-
 export const register = (userData) => async dispatch => {
     try {
-        console.log(userData)
         const response = await api.post('register', userData)
+        console.log(response.data.error)
         dispatch({
             type: REGISTER_SUCCESS,
             payload: response.data
@@ -31,7 +34,6 @@ export const register = (userData) => async dispatch => {
         dispatch(loaduser())
     } catch (error) {
         const errors = error.response.data.errors;
-        console.log(errors)
         if (errors) {
 			errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
         }
@@ -43,21 +45,19 @@ export const register = (userData) => async dispatch => {
     }
 }
 
-export const login = userData => async dispatch => {
+export const login = (email, password) => async dispatch => {
+    const userData = { email, password }
     try {
         const response = await api.post('login', userData)
-        console.log(response.data)
+        console.log(response)
         dispatch({
             type: LOGIN_SUCCESS,
             payload: response.data
         })
-
-        //dispatch(loaduser())
+       dispatch(loaduser())
 
     } catch (error) {
-        console.log(`${error}`)
-        const errors = error.response.data;
-        console.log(error)
+        const errors = error.response.data.errors;
         if (errors) {
 			errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
         }
@@ -68,4 +68,8 @@ export const login = userData => async dispatch => {
     }
 }
 
-export const logout = () => ({type: LOGOUT})
+export const logout = () => dispatch => {
+    dispatch({
+        type: LOGOUT
+    })
+}

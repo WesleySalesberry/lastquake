@@ -21,11 +21,12 @@ export const userReducer = (state = INITAL_STATE, action) =>{
     switch(type){
         case REGISTER_SUCCESS:
         case LOGIN_SUCCESS:
+            localStorage.setItem('token', payload.token)
             return {
                 ...state,
+                ...payload,
 				isAuthenticated: true,
 				loading: false,
-				user: payload
             }
             
         case USER_LOADED:
@@ -36,14 +37,18 @@ export const userReducer = (state = INITAL_STATE, action) =>{
 				user: payload
 			};
 
-        case LOGOUT:
+        
         case REGISTER_FAIL:
         case LOGIN_FAIL:
+        case AUTH_ERROR:
+        case LOGOUT:
+            localStorage.removeItem('token')
             return {
                 ...state,
-                isAuthenticated: null,
-	            loading: true,
-	            user: null
+                token: null,
+                isAuthenticated: false,
+                loading: false,
+                user: null
             }
         default:
             return state;
