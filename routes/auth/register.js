@@ -5,16 +5,15 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 
 const { validationResult } = require('express-validator')
-const{ requireUserName, requireEmail, requirePassword, requirePasswordConfirmation, comparePasswords } = require('./vaildators')
+const { requireEmail, requirePassword, requirePasswordConfirmation, comparePasswords } = require('./vaildators')
 
 const User = require('../../models/User')
 
-//@route POST api/user
+//@route POST api/register
 //@desc  Register User
 //@access Public
-router.post('/api/register',
+router.post('/',
 [
-    requireUserName,
     requireEmail,
     requirePassword,
     requirePasswordConfirmation,
@@ -26,8 +25,9 @@ router.post('/api/register',
     if(!errors.isEmpty()){
         return res.status(400).json({ errors: errors.array() })
     }
+    console.log(req.body)
 
-    const { name, email, password, passwordConfirmation } = req.body
+    const { username, email, password } = req.body
     
     try {
         let user = await User.findOne({ email })
@@ -37,7 +37,7 @@ router.post('/api/register',
             })
         }
         user = new User({
-            name,
+            username,
             email,
             password
         })
