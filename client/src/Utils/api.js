@@ -1,9 +1,23 @@
 import axios from 'axios';
 
-export const api = axios.create({
+const api = axios.create({
 	baseURL: 'http://localhost:5000/api/',
+	 headers: {
+            'Content-Type': 'application/json'
+        }
 	
 });
+
+// api.interceptors.response.use(
+//   res => res,
+//   err => {
+//     if (err.response.status === 401) {
+//       store.dispatch({ type: LOGOUT });
+//     }
+//     return Promise.reject(err);
+//   }
+// );
+
 
 export const setAuthToken = token => {
 	if (token) {
@@ -34,3 +48,6 @@ export const citySearch = async (city) => {
 		
 	}
 }
+
+
+export default api;
