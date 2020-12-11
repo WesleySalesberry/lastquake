@@ -11,27 +11,13 @@ const connectDB = require('./database/mainDB')
 connectDB()
 
 const PORT = process.env.PORT || 5000;
-
-
-/*
-TODO: when done building change to MongoDB
-NEDB used for testing
-*/
-// const Datastore = require('nedb');
-
-// const database = new Datastore('test.db');
-// database.loadDatabase();
-
-
-
+// TODO: Redo the way the Routes are
 const currentDay = require('./routes/history')
 const search = require('./routes/search')
 const register = require('./routes/auth/register')
 const login = require('./routes/auth/signin')
 
 app.get('/', (req, res) => res.send('API Running'));
-
-
 
 app.use(currentDay)
 app.use(search)
