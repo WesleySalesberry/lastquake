@@ -4,6 +4,7 @@ import { option_2 } from './Opitions'
 import {Container, Row, Jumbotron, DropdownButton, Dropdown} from 'react-bootstrap'
 import { currentData } from '../../Utils/api'
 import './Landing.css'
+import { FooterComponent } from '../../component/footer/Footer'
 
 export const Landing = () => {
     const [ time, setTime ] = useState('')
@@ -14,12 +15,10 @@ export const Landing = () => {
 
     return (
         <Container>
-                <Container className="p-3">
                     <Jumbotron className="bg-color text-color">
                         <h1 className="header text-center">Welcome To LastQuake</h1>
                         <p className="lead text-center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo, optio? </p>
                     </Jumbotron>
-                </Container>
                 <Row className="justify-content-md-center">
                     <DropdownButton
                         title="Time Frame"
