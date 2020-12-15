@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const { model } = require('./User')
 
 const Profile = new mongoose.Schema({
     user: {
@@ -17,4 +16,4 @@ const Profile = new mongoose.Schema({
 		default: Date.now
 	}
 })
-model.exports = mongoose.model('profile', Profile);
+module.exports = mongoose.model('profile', Profile);
