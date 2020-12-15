@@ -16,7 +16,7 @@ const currentDay = require('./routes/history')
 const search = require('./routes/search')
 const register = require('./routes/auth/register')
 const login = require('./routes/auth/signin')
-const profile = require('./routes/profile/profile')
+const profiles = require('./routes/profiles/profile')
 
 // app.get('/', (req, res) => res.send('API Running'));
 
@@ -25,7 +25,7 @@ app.use('/api/login', login)
 app.use('/api/register', register)
 
 //Profile
-app.use('api/profile', profile)
+app.use('/api/profile', profiles)
 
 
 app.use(currentDay)
