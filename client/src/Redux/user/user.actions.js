@@ -10,7 +10,6 @@ export const loaduser = () => async dispatch =>{
     }
     try {
         const response = await api.get('login')
-        console.log(response)
         dispatch({
             type: USER_LOADED,
             payload: response.data
@@ -49,7 +48,6 @@ export const login = (email, password) => async dispatch => {
     const userData = { email, password }
     try {
         const response = await api.post('login', userData)
-        console.log(response)
         dispatch({
             type: LOGIN_SUCCESS,
             payload: response.data
@@ -57,11 +55,12 @@ export const login = (email, password) => async dispatch => {
        dispatch(loaduser())
 
     } catch (error) {
-        const errors = error.response.data.errors;
-        if (errors) {
-			errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
-        }
-        
+        console.log(`Login Error: ${error}`)
+        // const errors = error.response.data.errors;
+        // if (errors) {
+		// 	errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+        // }
+
         dispatch({
             type: LOGIN_FAIL
         })
