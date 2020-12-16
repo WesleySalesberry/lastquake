@@ -1,7 +1,5 @@
 import React, {Fragment, useState, useEffect} from 'react'
-import { renderToStaticMarkup } from 'react-dom/server';
-// import { MapContainer, Marker, TileLayer, Popup, Icon } from 'react-leaflet'
-// import {divIcon} from 'leaflet';
+
 import { Loader } from '../Loader/Loader'
 import {Map} from './Map'
 import './MapDisplay.css'
@@ -30,7 +28,6 @@ export const MapDisplay = ({ zoom, option, func}) => {
              //const myData = await citySearch(city)
              const myData = await func(option)
              setData(myData.data)
-             console.log(myData.data.properties)
 
             setCoords({
                 lat: myData.data[0].geometry.coordinates[1].toFixed(3), 

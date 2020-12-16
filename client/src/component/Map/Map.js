@@ -28,7 +28,6 @@ export const Map = ({ data, position, zoom }) => {
                             key={item.id}
                             position={[item.geometry.coordinates[1], item.geometry.coordinates[0] ]}
                             icon={markerIcon}
-                            className={changeColor(item.properties.mag)}
                         >
                             <Popup 
                                 className="popup"
