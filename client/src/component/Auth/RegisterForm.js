@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
-import { Form, Alert } from 'react-bootstrap';
+import { Redirect } from 'react-router-dom';
+import { Form } from 'react-bootstrap';
 import {useSpring, animated} from 'react-spring'
 
 import PropTypes from 'prop-types'
@@ -8,6 +9,7 @@ import { setAlert } from '../../Redux/alert/alert.action'
 import { register } from '../../Redux/user/user.actions'
 
 import './formStyle.css';
+
 
 const Register = ({status, setAlert, register, isAuthenticated}) => {
     const statusProps = useSpring(
@@ -24,10 +26,6 @@ const Register = ({status, setAlert, register, isAuthenticated}) => {
     })
     const { username, email, password, passwordConfirmation } = formData
 
-    const checkPassword = (pass1, pass2) => {
-       return pass1 === pass2 ? false : true
-    }
-
     const handleChange = evt => {
         setFormData({
             ...formData,
@@ -42,9 +40,14 @@ const Register = ({status, setAlert, register, isAuthenticated}) => {
         }
         register({username, email, password, passwordConfirmation})
         }
+    
+
+     if (isAuthenticated){
+        return <Redirect to="/dashboard" />
+    }
    
     return (
-        <animated.form style={statusProps}>
+        <animated.div style={statusProps}>
              <Form> 
                <Form.Group>
                    <Form.Label className="text-color">UserName</Form.Label>
@@ -92,7 +95,7 @@ const Register = ({status, setAlert, register, isAuthenticated}) => {
                </Form.Group>
               <input type="submit" className="btn btn-primary" onClick={evt => handleSubmit(evt) } value="Register" />
             </Form>
-    </animated.form>
+    </animated.div>
     )
 }
 
@@ -103,7 +106,7 @@ Register.propTypes = {
 }
 
 const mapStateToProps = state => ({
-    isAuthenticated: state.isAuthenticated
+    isAuthenticated: state.auth.isAuthenticated
 })
 
 

@@ -1,12 +1,14 @@
 import React, {useState} from 'react'
 import { Form } from 'react-bootstrap';
 import {useSpring, animated} from 'react-spring'
+import { Redirect } from 'react-router-dom';
 
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import { setAlert } from '../../Redux/alert/alert.action'
 import { login } from '../../Redux/user/user.actions'
 
-const LoginForm = ({status, login, isAuthenticated }) => {
+const LoginForm = ({setAlert, status, login, isAuthenticated }) => {
     const statusProps = useSpring({ opacity: status ? 1 : 0, from: { opacity: 0 } });
     const [formData, setFormData] = useState({
         email: '',
@@ -14,6 +16,15 @@ const LoginForm = ({status, login, isAuthenticated }) => {
     })
 
     const { email, password, } = formData
+
+    const validForm = (email, password) => {
+        if(email === ''){
+            setAlert('Email Cannot Be Blank', 'danger')
+        }
+        if (password === ''){
+            setAlert('Password Cannot Be Blank', 'danger')
+        }
+    }
 
     const handleChange = (evt) => {
         setFormData({
@@ -24,11 +35,18 @@ const LoginForm = ({status, login, isAuthenticated }) => {
 
     const handleSubmit = (evt) => {
         evt.preventDefault()
+        if(password === ''){
+            setAlert('Invalid Form', 'danger')
+        }
         login(email, password)
+    }
+    if (isAuthenticated){
+        // console.log(`Is Auth: ${isAuthenticated}`)
+        return <Redirect to="/dashboard" />
     }
 
     return (
-        <animated.form style={statusProps}>
+        <animated.div style={statusProps}>
              <Form> 
                 <Form.Group>
                    <Form.Label className="text-color">Email</Form.Label>
@@ -52,17 +70,18 @@ const LoginForm = ({status, login, isAuthenticated }) => {
                </Form.Group>
                 <input type="submit" className="btn btn-primary" onClick={evt => handleSubmit(evt) } value="Login" />
             </Form>
-        </animated.form >
+        </animated.div >
   );
 }
 
 LoginForm.propTypes = {
     login: PropTypes.func.isRequired,
     isAuthenticated: PropTypes.bool,
+    setAlert: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => ({
-    isAuthenticated: state.isAuthenticated
+    isAuthenticated: state.auth.isAuthenticated
 })
 
-export default connect(mapStateToProps, {login})(LoginForm)
+export default connect(mapStateToProps, {setAlert, login})(LoginForm)
