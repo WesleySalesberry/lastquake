@@ -1,22 +1,35 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { Alert } from 'react-bootstrap';
+import { Alert, Fade } from 'react-bootstrap';
 
-const Alert = ({ alerts }) =>  alerts !== null && alerts.length > 0 &&
-   alerts.map(alert => (
-       <Alert key={alert.id} variant={alert.alertType}>
+const Alerts = ({ alert }) => {
+    return alert !== null && alert.map(alert => (
+        
+        <Alert 
+            key={alert.id} 
+            variant={alert.alertType}
+            transition={Fade}
+            className="d-flex justify-content-center"
+            
+        >
            {alert.msg}
        </Alert>
-   ))
-   console.log(alerts.id)
+    ))
+
+}
+  
 
 Alert.protoType = {
     alerts: PropTypes.array.isRequired
 }
 
 const mapStateToProps = state => ({
-    alerts: state.alertReducer
+    alert: state.alert
 })
 
-export default connect(mapStateToProps)(Alert)
+export default connect(mapStateToProps)(Alerts)
+
+//  alert.map(alert => (
+       
+//    ))
