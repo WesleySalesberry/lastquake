@@ -4,14 +4,12 @@ import { option_2 } from './Opitions'
 import {Container, Row, Jumbotron, DropdownButton, Dropdown} from 'react-bootstrap'
 import { currentData } from '../../Utils/api'
 import './Landing.css'
-import { FooterComponent } from '../../component/footer/Footer'
+
 
 export const Landing = () => {
     const [ time, setTime ] = useState('')
-    const handleSelect = (evt) =>{
-        console.log(evt)
-        setTime(evt)
-    }
+    const handleSelect = (evt) => setTime(evt)
+    
 
     return (
         <Container>
