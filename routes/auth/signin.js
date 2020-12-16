@@ -16,7 +16,6 @@ const User = require('../../models/User')
 router.get('/', auth, async (req, res) => {
     try {
         const user = await User.findById(req.user.id).select('-password')
-        console.log(user)
         res.send(user)
     } catch (error) {
         console.error(`GET: ${error.message}`);
