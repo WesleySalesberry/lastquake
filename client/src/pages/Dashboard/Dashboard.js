@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { Container, Row, Image, Col, Tabs, Tab, TabsContainer } from 'react-bootstrap'
-import TabContainer from 'react-bootstrap/TabContainer'
+import { Container, Row, Image, Col, Tabs, Tab } from 'react-bootstrap'
+import ProfileComponent from '../../component/Profile/ProfileComponent'
 
 export const Dashboard = () => {
     const [key, setKey] = useState('home')
@@ -16,18 +16,14 @@ export const Dashboard = () => {
                 />
               </Col>
           </Row>
-          <Row m={3}>
+          <Row m={5}>
               <Col>
                 <Tabs
-                     
-                     activeKey={key}
-                     onSelect={(k) => setKey(k)}
+                    activeKey={key}
+                    onSelect={(k) => setKey(k)}
                 >
-                     <Tab eventKey="home" title="Home">
-                         <h1>Home</h1>
-                     </Tab>
-                      <Tab eventKey="profile" title="Profile">
-                         <h1>Profile</h1>
+                     <Tab eventKey="profile" title="Profile">
+                        <ProfileComponent />
                      </Tab>
                      <Tab eventKey="messages" title="Messages">
                          <h1>Messages</h1>
