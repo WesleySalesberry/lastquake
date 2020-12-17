@@ -5,7 +5,8 @@ import {
 	AUTH_ERROR,
 	LOGIN_FAIL,
 	LOGIN_SUCCESS,
-	LOGOUT,
+    LOGOUT,
+    ACCOUNT_DELETED
 } from '../types';
 
 const INITAL_STATE = {
@@ -37,7 +38,7 @@ export const userReducer = (state = INITAL_STATE, action) =>{
 				user: payload
 			};
 
-        
+        case ACCOUNT_DELETED:
         case REGISTER_FAIL:
         case LOGIN_FAIL:
         case AUTH_ERROR:

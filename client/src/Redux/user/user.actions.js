@@ -1,6 +1,6 @@
 import { api, setAuthToken } from '../../Utils/api'
 
-import { REGISTER_FAIL, REGISTER_SUCCESS, LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT, USER_LOADED, AUTH_ERROR } from '../types'
+import { REGISTER_FAIL, REGISTER_SUCCESS, LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT, USER_LOADED, AUTH_ERROR, CLEAR_PROFILE } from '../types'
 import { setAlert } from '../alert/alert.action'
 
 
@@ -68,6 +68,9 @@ export const login = (email, password) => async dispatch => {
 }
 
 export const logout = () => dispatch => {
+     dispatch({
+        type: CLEAR_PROFILE
+    })
     dispatch({
         type: LOGOUT
     })
