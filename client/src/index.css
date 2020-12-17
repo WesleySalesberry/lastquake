@@ -1,7 +1,7 @@
 
 #root{
-    background-color: #221f1f;
-    color: #a4a29e;
+    /* background-color: #221f1f; */
+    /* color: #a4a29e; */
     box-sizing: border-box; 
     font-family: 'Open Sans', sans-serif; 
     margin:0;
@@ -13,4 +13,58 @@ html,body, body * {
     background-color:inherit;
  }
 
+ .bg-color{
+    background-color: #2e3233 !important;
+}
+
+.text-color{
+    color: #a4a29e;
+}
+
+.container{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px;
+  width: 100%;
+  height: 90vh;
+}
+
+button{
+  
+  outline: none;
+  border: none;
+}
+.login{
+  margin:10px;
+}
+.login:active, .login:focus{
+
+  outline: none;
+}
+.register:active, .register:focus{
+
+  outline: none;
+}
+
+
+
+ .delete-BTN{
+     outline: none;
+     border: none;
+     color: #ffcccb;
+     transition: all 0.3s ease-in;
+ }
+
+ .delete-BTN:active, .delete-BTN:focus {
+     outline: none;
+ }
+
+ .delete-BTN:hover{
+     border: 1px solid #000;
+     border-radius: 5px;
+     background: #8b0000;
+     color: #fff;
+     padding: 5px;
+ }
  
