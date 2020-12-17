@@ -102,12 +102,13 @@ router.get('/user/:id', async (req, res) => {
 //@desc   Delete all user information 
 //@access Private
 router.delete('/', auth, async (req, res) => {
+    console.log(req.user.id)
     try {
-        await User.deleteMany({ user: req.user.id})
-        await Profile.deleteMany({ user: req.user.id})
+        await User.findOneAndRemove({ _id: req.user.id})
+        await Profile.findOneAndRemove({ user: req.user.id})
         res.json({ msg: 'User Deleted'})
     } catch (error) {
-        console.error(error.message);
+        
 		res.status(500).send('Sever Error');
     }
 
