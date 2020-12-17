@@ -15,6 +15,7 @@ import Alerts from './component/Alerts/Alert';
 import { Dashboard } from './Pages/Dashboard/Dashboard';
 
 import PrivateRoute from './component/Routeing/PrivateRoute';
+import UpdateProfile from './component/Profile/UpdateProfile';
 
 
  if(localStorage.token){
