@@ -3,7 +3,7 @@ import { MapDisplay } from '../../component/Map/MapDisplay'
 import { option_2 } from './Opitions'
 import {Container, Row, Jumbotron, DropdownButton, Dropdown} from 'react-bootstrap'
 import { currentData } from '../../Utils/api'
-import './Landing.css'
+
 
 
 export const Landing = () => {

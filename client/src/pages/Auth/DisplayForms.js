@@ -1,15 +1,15 @@
 import React, {useState} from 'react'
-import './Styles.css'
 import { animated } from "react-spring";
 import Register  from '../../component/Auth/RegisterForm';
 import LoginForm from '../../component/Auth/LoginForm';
+import { Container } from 'react-bootstrap';
 
 
 export const DisplayForms = () => {
   const [status, setStatus] = useState()
 
   return (
-      <div className="container">
+      <Container fluid="md">
         <div className="BTN-nav">
           <animated.button 
             className="login"
@@ -22,47 +22,6 @@ export const DisplayForms = () => {
               <LoginForm status={status} />
           }
         </div>
-      </div>
+      </Container>
   )
 }
-
-  // <div className="BTN-nav">
-  //         <animated.button 
-  //           className="login"
-  //           style={loginBTN}
-  //           onClick={handleLoginClick}
-  //         >
-  //           Login
-  //         </animated.button>
-  //         <animated.button 
-  //           className="register"
-  //           style={registerBTN}
-  //           onClick={handleRegisterClick}
-  //         >
-  //          Register
-  //         </animated.button>
-  //       </div>
-
-
-
-
-
-  // {
-  //           status ? 
-  //             transitions.map(({item, props, key}) => {
-  //               return  <animated.form><Register
-  //                        key={key}
-  //                        style={props}
-  //                      />
-  //                       </animated.form>
-  //             })
-  //           :
-  //              transitions.map(({item, props, key}) => {
-  //               return  <animated.form><LoginForm
-  //                        key={key}
-  //                        style={props}
-  //                      />
-  //                       </animated.form>
-  //             })
-
-  //         }
